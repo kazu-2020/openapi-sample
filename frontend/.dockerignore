@@ -1,0 +1,38 @@
+# ログファイル
+*.log
+
+# Node.js モジュールディレクトリ
+node_modules
+
+# Next.js ビルドディレクトリ
+.next
+
+# テスト関連ファイル
+*.test.js
+*.test.jsx
+*.test.ts
+*.test.tsx
+__tests__
+
+# エディタの設定ファイル
+.editorconfig
+.eslintcache
+.eslintignore
+.prettierignore
+.prettierrc
+.stylelintrc
+.vscode
+
+# Git 関連ファイル
+.git
+.gitignore
+
+# npm 関連ファイル
+.npmignore
+npm-debug.log
+
+# ローカル開発用ファイル
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
