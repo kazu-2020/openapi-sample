@@ -1,0 +1,43 @@
+# バージョン管理システム
+.git
+.gitignore
+
+# Bundler
+.bundle
+
+# ビルド成果物
+log/
+tmp/
+public/assets/
+
+# テスト、CI/CD関連
+spec/
+test/
+features/
+.circleci/
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# 開発環境向けの設定ファイル
+config/database.yml
+config/master.key
+config/credentials.yml.enc
+config/secrets.yml
+config/initializers/dev_*.rb
+config/environments/development.rb
+config/environments/test.rb
+
+# Docker関連
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# ローカル環境向けのファイル
+.ruby-version
+.ruby-gemset
+.rubocop.yml
+.rspec
+.env
+.env.local
+.env.*.local

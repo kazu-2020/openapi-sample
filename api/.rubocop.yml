@@ -1,0 +1,26 @@
+require:
+  - standard
+  - rubocop-rails
+  - rubocop-rspec
+  - database_validations/rubocop/cops
+  - 'test_prof/rubocop'
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - public/**/*
+    - vendor/**/*
+
+Rails:
+  Enabled: true
+RSpec:
+  Enabled: true
+
+RSpec/AggregateExamples:
+  AddAggregateFailuresMetadata: false
+
+Bundler/DuplicatedGem:
+  Enabled: false
