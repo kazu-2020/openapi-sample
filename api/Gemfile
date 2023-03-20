@@ -47,7 +47,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "ruby-lsp", "~> 0.4.1", require: false
+  gem "ruby-lsp", "~> 0.4.1"
   gem "bundle-audit", "~> 0.1.0", require: false
   gem "brakeman", "~> 5.4.1", require: false
   gem "standard", "~> 1.25.1", require: false
