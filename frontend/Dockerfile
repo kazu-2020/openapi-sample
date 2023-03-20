@@ -4,9 +4,6 @@ FROM node:16.17.0-bullseye-slim AS base
 # 作業ディレクトリの作成
 WORKDIR /app
 
-# 環境変数を設定
-ENV NODE_ENV production
-
 # 依存関係のコピー
 COPY --chown=node:node package*.json ./
 

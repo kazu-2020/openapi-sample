@@ -30,7 +30,6 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 FROM builder as development
 
 # Bundlerでgemをインストール
-USER myappuser
 RUN bundle install
 
 # プロジェクトのファイルをコピー
@@ -50,7 +49,6 @@ FROM builder as production
 COPY --chown=myappuser:myappuser . /myapp
 
 # Bundlerでgemをインストール
-USER myappuser
 RUN bundle config set --local without 'development test' && \
     bundle install
 
