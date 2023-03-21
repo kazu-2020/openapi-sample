@@ -40,7 +40,7 @@ EXPOSE 3000
 
 # コンテナ起動時に実行されるコマンド
 USER myappuser
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["/usr/bin/bash"]
 
 # 本番環境用のイメージ
 FROM builder as production

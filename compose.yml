@@ -1,28 +1,35 @@
 version: '3.8'
 
+x-api: &api-base
+  build:
+    context: ./api
+    dockerfile: Dockerfile
+    target: development
+  tty: true
+  stdin_open: true
+  volumes:
+    - type: volume
+      source: bundle_cache
+      target: /usr/local/bundle
+    - type: bind
+      source: ./api
+      target: /myapp
+  depends_on:
+    - db
+  environment:
+    - RAILS_ENV=development
+    - DATABASE_URL=postgres://apiuser:password@db:5432/api_development
+
 services:
+  rails:
+    <<: *api-base
+    command: bundle exec rails
+
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-      target: development
+    <<: *api-base
     command: rails server -b '0.0.0.0'
-    tty: true
-    stdin_open: true
     ports:
       - '3000:3000'
-    volumes:
-      - type: volume
-        source: bundle_cache
-        target: /usr/local/bundle
-      - type: bind
-        source: ./api
-        target: /myapp
-    depends_on:
-      - db
-    environment:
-      - RAILS_ENV=development
-      - DATABASE_URL=postgresql://myappuser:password@db/openapi_sample_api_development
 
   db:
     image: postgres:13.10
@@ -31,9 +38,8 @@ services:
         source: db_data
         target: /var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=myappuser
+      - POSTGRES_USER=apiuser
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=openapi_sample_api_development
 
   web:
     build:
